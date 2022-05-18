@@ -1,4 +1,4 @@
-package crazyson.com.ua.notez
+package crazyson.com.ua.notez.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
