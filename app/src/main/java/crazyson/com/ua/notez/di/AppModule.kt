@@ -5,6 +5,7 @@ import androidx.room.Room
 import crazyson.com.ua.notez.feature_note.data.data_source.NoteDataBase
 import crazyson.com.ua.notez.feature_note.data.repository.NoteRepositoryImpl
 import crazyson.com.ua.notez.feature_note.domain.repository.NoteRepository
+import crazyson.com.ua.notez.feature_note.domain.use_case.AddNote
 import crazyson.com.ua.notez.feature_note.domain.use_case.DeleteNote
 import crazyson.com.ua.notez.feature_note.domain.use_case.GetNotes
 import crazyson.com.ua.notez.feature_note.domain.use_case.NoteUseCases
@@ -39,7 +40,8 @@ object AppModule {
     fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
         return NoteUseCases(
             getNotes = GetNotes(repository),
-            deleteNote = DeleteNote(repository)
+            deleteNote = DeleteNote(repository),
+            addNote = AddNote(repository)
         )
     }
 }
