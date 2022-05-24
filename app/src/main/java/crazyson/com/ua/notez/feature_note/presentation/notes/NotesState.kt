@@ -9,4 +9,4 @@ data class NotesState(
     val noteOrder: NoteOrder = NoteOrder.Date(OrderType.Descending),
     val isOrderSectionVisible: Boolean = false,
 
-)
+    )
