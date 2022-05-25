@@ -13,11 +13,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import crazyson.com.ua.notez.feature_note.domain.use_case.DeleteNote
 import crazyson.com.ua.notez.feature_note.presentation.notes.components.NoteItem
 import crazyson.com.ua.notez.feature_note.presentation.notes.components.OrderSection
 import crazyson.com.ua.notez.feature_note.presentation.notes.viewmodel.NotesViewModel
@@ -35,19 +33,19 @@ fun NoteScreen(
 
     Scaffold(
         floatingActionButton =
-                {
-                    FloatingActionButton(
-                        onClick = {
+        {
+            FloatingActionButton(
+                onClick = {
 
-                        },
-                        backgroundColor = MaterialTheme.colors.primary
-                    ) {
-                        Icon(
-                            imageVector = Icons.Default.Add,
-                            contentDescription = "Add note"
-                        )
-                    }
                 },
+                backgroundColor = MaterialTheme.colors.primary
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Add,
+                    contentDescription = "Add note"
+                )
+            }
+        },
         scaffoldState = scaffoldState
     ) {
         Column(
@@ -64,11 +62,12 @@ fun NoteScreen(
                     text = "Your note",
                     style = MaterialTheme.typography.h4
                 )
-                IconButton(onClick = {
-                                     viewModel.onEvent(NotesEvent.ToggleOrderSection)
-                },
+                IconButton(
+                    onClick = {
+                        viewModel.onEvent(NotesEvent.ToggleOrderSection)
+                    },
 
-                ) {
+                    ) {
                     Icon(
                         imageVector = Icons.Default.Sort,
                         contentDescription = "Sort"

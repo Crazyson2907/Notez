@@ -36,7 +36,7 @@ fun NoteItem(
     ) {
         Canvas(modifier = Modifier.matchParentSize()) {
             val clipPath = Path().apply {
-                lineTo(size.width -  cutCornerSize.toPx(), 0f)
+                lineTo(size.width - cutCornerSize.toPx(), 0f)
                 lineTo(size.width, cutCornerSize.toPx())
                 lineTo(size.width, size.height)
                 lineTo(0f, size.height)
@@ -53,7 +53,7 @@ fun NoteItem(
                         ColorUtils.blendARGB(note.color, 0x000000, 0.2f)
                     ),
                     topLeft = Offset(size.width - cutCornerSize.toPx(), -100f),
-                    size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx()+ 100f),
+                    size = Size(cutCornerSize.toPx() + 100f, cutCornerSize.toPx() + 100f),
                     cornerRadius = CornerRadius(cornerRadius.toPx())
                 )
             }
@@ -69,7 +69,7 @@ fun NoteItem(
                 style = MaterialTheme.typography.h6,
                 color = MaterialTheme.colors.onSurface,
                 maxLines = 1,
-                overflow =  TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis
             )
             Spacer(modifier = Modifier.height(8.dp))
             Text(
@@ -77,7 +77,7 @@ fun NoteItem(
                 style = MaterialTheme.typography.body1,
                 color = MaterialTheme.colors.onSurface,
                 maxLines = 10,
-                overflow =  TextOverflow.Ellipsis
+                overflow = TextOverflow.Ellipsis
             )
         }
         IconButton(
