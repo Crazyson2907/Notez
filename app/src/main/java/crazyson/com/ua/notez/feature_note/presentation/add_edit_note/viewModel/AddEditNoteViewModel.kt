@@ -24,14 +24,18 @@ class AddEditNoteViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
-    private val _noteTitle = mutableStateOf(NoteTextFieldState(
-        hint = "Enter title here ..."
-    ))
+    private val _noteTitle = mutableStateOf(
+        NoteTextFieldState(
+            hint = "Enter title here ..."
+        )
+    )
     val noteTitle: State<NoteTextFieldState> = _noteTitle
 
-    private val _noteContent = mutableStateOf(NoteTextFieldState(
-        hint = "Enter some text ..."
-    ))
+    private val _noteContent = mutableStateOf(
+        NoteTextFieldState(
+            hint = "Enter some text ..."
+        )
+    )
     val noteContent: State<NoteTextFieldState> = _noteContent
 
     private val _noteColor = mutableStateOf(Note.noteColors.random().toArgb())
@@ -64,7 +68,7 @@ class AddEditNoteViewModel @Inject constructor(
     }
 
     fun onEvent(event: AddEditNoteEvent) {
-        when(event) {
+        when (event) {
             is AddEditNoteEvent.EnteredTitle -> {
                 _noteTitle.value = noteTitle.value.copy(
                     text = event.value
@@ -116,7 +120,7 @@ class AddEditNoteViewModel @Inject constructor(
     }
 
     sealed class UiEvent {
-        data class ShowSnackBar(val message: String): UiEvent()
-        object SaveNote: UiEvent()
+        data class ShowSnackBar(val message: String) : UiEvent()
+        object SaveNote : UiEvent()
     }
 }
