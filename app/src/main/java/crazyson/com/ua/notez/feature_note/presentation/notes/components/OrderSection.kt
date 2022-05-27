@@ -7,7 +7,6 @@ import androidx.compose.ui.unit.dp
 import crazyson.com.ua.notez.feature_note.domain.util.NoteOrder
 import crazyson.com.ua.notez.feature_note.domain.util.OrderType
 
-
 @Composable
 fun OrderSection(
     modifier: Modifier = Modifier,
