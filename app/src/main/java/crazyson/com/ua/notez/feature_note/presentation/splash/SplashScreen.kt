@@ -13,7 +13,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
-import crazyson.com.ua.notez.R
 import kotlinx.coroutines.delay
 
 @Composable
@@ -37,10 +36,14 @@ fun SplashScreen(navController: NavController) {
     }
 
     // Image
-    Box(contentAlignment = Alignment.Center,
-        modifier = Modifier.fillMaxSize()) {
-        Image(painter = painterResource(id = com.google.android.material.R.drawable.material_cursor_drawable), //mocked one //https://www.geeksforgeeks.org/animated-splash-screen-in-android-using-jetpack-compose/
+    Box(
+        contentAlignment = Alignment.Center,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Image(
+            painter = painterResource(id = com.google.android.material.R.drawable.material_cursor_drawable), //mocked one //https://www.geeksforgeeks.org/animated-splash-screen-in-android-using-jetpack-compose/
             contentDescription = "Logo",
-            modifier = Modifier.scale(scale.value))
+            modifier = Modifier.scale(scale.value)
+        )
     }
 }
