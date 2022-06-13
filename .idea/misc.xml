@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v21/ic_baseline_sticky_note_2_24.xml" value="0.4005" />
         <entry key="app/src/main/res/drawable/ic_baseline_sticky_note_2_24.xml" value="0.343" />
       </map>
     </option>
