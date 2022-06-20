@@ -67,7 +67,7 @@ fun AddEditNoteScreen(
                 onClick = {
                     viewModel.onEvent(AddEditNoteEvent.SaveNote)
                 },
-                backgroundColor = MaterialTheme.colors.primary
+                backgroundColor = MaterialTheme.colors.error
             ) {
                 Icon(imageVector = Icons.Default.Save, contentDescription = "Save note")
             }
