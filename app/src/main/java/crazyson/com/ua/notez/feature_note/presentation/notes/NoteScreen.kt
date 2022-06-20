@@ -39,7 +39,7 @@ fun NoteScreen(
                 onClick = {
                     navController.navigate(Screen.AddEditNoteScreen.route)
                 },
-                backgroundColor = MaterialTheme.colors.primary
+                backgroundColor = MaterialTheme.colors.error
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
