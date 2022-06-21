@@ -10,38 +10,39 @@ import kotlinx.coroutines.runBlocking
 import org.junit.Before
 import org.junit.Test
 
-class GetNotesTest
+class GetNotesTest {
 
-private lateinit var getNotes: GetNotes
-private lateinit var fakeRepository: FakeNoteRepository
+    private lateinit var getNotes: GetNotes
+    private lateinit var fakeRepository: FakeNoteRepository
 
-@Before
-fun setUp() {
-    fakeRepository = FakeNoteRepository()
-    getNotes = GetNotes(fakeRepository)
+    @Before
+    fun setUp() {
+        fakeRepository = FakeNoteRepository()
+        getNotes = GetNotes(fakeRepository)
 
-    val notesToInsert = mutableListOf<Note>()
-    ('a'..'z').forEachIndexed { index, c ->
-        notesToInsert.add(
-            Note(
-                title = c.toString(),
-                content = c.toString(),
-                timeStamp = index.toLong(),
-                color = index
+        val notesToInsert = mutableListOf<Note>()
+        ('a'..'z').forEachIndexed { index, c ->
+            notesToInsert.add(
+                Note(
+                    title = c.toString(),
+                    content = c.toString(),
+                    timeStamp = index.toLong(),
+                    color = index
+                )
             )
-        )
+        }
+        notesToInsert.shuffle()
+        runBlocking {
+            notesToInsert.forEach { fakeRepository.insertNote(it) }
+        }
     }
-    notesToInsert.shuffle()
-    runBlocking {
-        notesToInsert.forEach { fakeRepository.insertNote(it) }
-    }
-}
 
     @Test
-    fun `Order notes by title ascending, correct order` () = runBlocking {
+    fun `Order notes by title ascending, correct order`() = runBlocking {
         val notes = getNotes(NoteOrder.Title(OrderType.Ascending)).first()
 
-        for(i in 0..notes.size - 2) {
-            assertThat(notes[i].title).isLessThan(notes[i+1].title)
+        for (i in 0..notes.size - 2) {
+            assertThat(notes[i].title).isLessThan(notes[i + 1].title)
+        }
     }
 }
