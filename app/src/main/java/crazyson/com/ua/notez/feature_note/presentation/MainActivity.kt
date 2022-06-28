@@ -21,16 +21,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    private val viewModel: MainViewModel by viewModels()
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        installSplashScreen().apply {
-            setKeepOnScreenCondition{
-                viewModel.isLoading.value
-            }
-        }
 
         setContent {
             NotezTheme {
